@@ -58,14 +58,14 @@ ports:
   flow: 50051
   metrics: 9360
 
-resources:
-  flow:
-    requests:
-      cpu: 100m
-      memory: 256Mi
-    limits:
-      cpu: 1
-      memory: 1Gi
+resources: {}
+  # flow:
+  #   requests:
+  #     cpu: 100m
+  #     memory: 256Mi
+  #   limits:
+  #     cpu: 1
+  #     memory: 1Gi
 ## SPIFFE certificate for the Flow Service DNS name.
 ##
 ## Two identities live in this struct:

@@ -103,13 +103,13 @@ readinessProbe:
   successThreshold: 1
   timeoutSeconds: 5
 
-resources:
-  limits:
-    cpu: "8"
-    memory: 8Gi
-  requests:
-    cpu: "2"
-    memory: 2Gi
+resources: {}
+  # limits:
+  #   cpu: "8"
+  #   memory: 8Gi
+  # requests:
+  #   cpu: "2"
+  #   memory: 2Gi
 
 pods:
   default: null

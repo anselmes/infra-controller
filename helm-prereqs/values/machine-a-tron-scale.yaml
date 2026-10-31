@@ -109,13 +109,13 @@ readinessProbe:
 
 # Larger resources: one tokio task per host + per DPU; at thousands of
 # machines the FSM/API chatter is CPU-bound.
-resources:
-  limits:
-    cpu: "8"
-    memory: 8Gi
-  requests:
-    cpu: "2"
-    memory: 2Gi
+resources: {}
+  # limits:
+  #   cpu: "8"
+  #   memory: 8Gi
+  # requests:
+  #   cpu: "2"
+  #   memory: 2Gi
 
 pods:
   default: null  # Disable default pod

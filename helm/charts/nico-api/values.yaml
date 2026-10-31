@@ -128,13 +128,13 @@ databaseAffinity:
   matchLabels:
     spilo-role: master
 
-resources:
-  limits:
-    cpu: 3
-    memory: 32Gi
-  requests:
-    cpu: 1500m
-    memory: 8Gi
+resources: {}
+  # limits:
+  #   cpu: 3
+  #   memory: 32Gi
+  # requests:
+  #   cpu: 1500m
+  #   memory: 8Gi
 
 ## Soft open-file limit applied before startup. Clamped to the runtime hard
 ## limit when it exceeds it. null falls back to 65536; non-null values must be

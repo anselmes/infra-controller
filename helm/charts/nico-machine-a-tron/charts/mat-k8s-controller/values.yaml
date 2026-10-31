@@ -34,13 +34,13 @@ image:
   pullPolicy: IfNotPresent
 
 ## Resource limits for the controller container
-resources:
-  limits:
-    cpu: 500m
-    memory: 512Mi
-  requests:
-    cpu: 100m
-    memory: 128Mi
+resources: {}
+  # limits:
+  #   cpu: 500m
+  #   memory: 512Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
 
 ## Controller configuration
 config:
@@ -106,13 +106,13 @@ gateway:
   existingAuthSecret: ""
 
   ## Resource limits for the gateway container
-  resources:
-    limits:
-      cpu: "1"
-      memory: 1Gi
-    requests:
-      cpu: 100m
-      memory: 256Mi
+  resources: {}
+    # limits:
+    #   cpu: "1"
+    #   memory: 1Gi
+    # requests:
+    #   cpu: 100m
+    #   memory: 256Mi
 
 ## Override names (useful when release name differs from chart name)
 nameOverride: ""

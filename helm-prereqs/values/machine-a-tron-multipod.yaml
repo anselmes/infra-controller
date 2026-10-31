@@ -83,13 +83,13 @@ pods:
         bmcDhcpRelayAddress: "10.200.0.1"  # NICo assigns unique IPs
         underlayDhcpRelayAddress: "10.201.0.1"  # simulated-underlay gateway (nico-core-simulation.yaml)
 
-resources:
-  limits:
-    cpu: "2"
-    memory: 2Gi
-  requests:
-    cpu: 500m
-    memory: 512Mi
+resources: {}
+  # limits:
+  #   cpu: "2"
+  #   memory: 2Gi
+  # requests:
+  #   cpu: 500m
+  #   memory: 512Mi
 
 # NOTE: Only use configFiles.matConfigs for advanced TOML overrides not exposed in values.
 configFiles:

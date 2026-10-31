@@ -26,13 +26,13 @@ tempo:
           endpoint: "[::]:4317"
         http:
           endpoint: "[::]:4318"
-  resources:
-    requests:
-      cpu: 200m
-      memory: 512Mi
-    limits:
-      cpu: "1"
-      memory: 2Gi
+  resources: {}
+    # requests:
+    #   cpu: 200m
+    #   memory: 512Mi
+    # limits:
+    #   cpu: "1"
+    #   memory: 2Gi
 persistence:
   enabled: true
   accessModes: [ReadWriteOnce]

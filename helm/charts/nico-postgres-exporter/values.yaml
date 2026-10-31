@@ -34,13 +34,13 @@ database:
     name: ""
     key: ca.crt
 
-resources:
-  requests:
-    cpu: 10m
-    memory: 64Mi
-  limits:
-    cpu: 100m
-    memory: 128Mi
+resources: {}
+  # requests:
+  #   cpu: 10m
+  #   memory: 64Mi
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
 
 # Requires Prometheus Operator CRDs. Configure labels to match the site's
 # Prometheus serviceMonitorSelector and ensure it watches this namespace.

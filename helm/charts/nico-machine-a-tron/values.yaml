@@ -67,13 +67,13 @@ terminationGracePeriodSeconds: 60
 annotations:
   configmap.reloader.stakater.com/reload: '{{ include "nico-machine-a-tron.name" . }}-config-files'
 
-resources:
-  limits:
-    cpu: 4
-    memory: 4Gi
-  requests:
-    cpu: 500m
-    memory: 1Gi
+resources: {}
+  # limits:
+  #   cpu: 4
+  #   memory: 4Gi
+  # requests:
+  #   cpu: 500m
+  #   memory: 1Gi
 
 ## Spread the machine-a-tron pods across nodes. Each pod is its own
 ## single-replica Deployment, so the rendered constraint selects every pod of

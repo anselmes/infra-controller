@@ -1,6 +1,9 @@
 version: v2beta1
 name: infra-controller
 
+localRegistry:
+  enabled: false
+
 vars:
   LOCAL_DEV_NAMESPACE:
     source: env
@@ -349,6 +352,15 @@ hooks:
             "${runtime.images.nico-bmc-proxy.image}:${runtime.images.nico-bmc-proxy.tag}" \
             "${runtime.images.machine-a-tron.image}:${runtime.images.machine-a-tron.tag}"
           ;;
+        *)
+          if command -v container >/dev/null 2>&1 && container cluster list 2>/dev/null | grep -qw "$CONTEXT"; then
+            dev/deployment/devspace/load-images-apple-container.sh "$CONTEXT" \
+              "${runtime.images.nico-api.image}:${runtime.images.nico-api.tag}" \
+              "${runtime.images.nico-bmc-proxy.image}:${runtime.images.nico-bmc-proxy.tag}" \
+              "${runtime.images.machine-a-tron.image}:${runtime.images.machine-a-tron.tag}" \
+              "${runtime.images.nico-pxe.image}:${runtime.images.nico-pxe.tag}"
+          fi
+          ;;
         # Add new local K8s tools here
       esac
   - name: load-rest-images-into-local-cluster
@@ -365,6 +377,17 @@ hooks:
             "${runtime.images.nico-rest-site-agent.image}:${runtime.images.nico-rest-site-agent.tag}" \
             "${runtime.images.nico-rest-db.image}:${runtime.images.nico-rest-db.tag}" \
             "${runtime.images.nico-rest-cert-manager.image}:${runtime.images.nico-rest-cert-manager.tag}"
+          ;;
+        *)
+          if command -v container >/dev/null 2>&1 && container cluster list 2>/dev/null | grep -qw "$CONTEXT"; then
+            dev/deployment/devspace/load-images-apple-container.sh "$CONTEXT" \
+              "${runtime.images.nico-rest-api.image}:${runtime.images.nico-rest-api.tag}" \
+              "${runtime.images.nico-rest-workflow.image}:${runtime.images.nico-rest-workflow.tag}" \
+              "${runtime.images.nico-rest-site-manager.image}:${runtime.images.nico-rest-site-manager.tag}" \
+              "${runtime.images.nico-rest-site-agent.image}:${runtime.images.nico-rest-site-agent.tag}" \
+              "${runtime.images.nico-rest-db.image}:${runtime.images.nico-rest-db.tag}" \
+              "${runtime.images.nico-rest-cert-manager.image}:${runtime.images.nico-rest-cert-manager.tag}"
+          fi
           ;;
       esac
   - name: setup-rest-integration
@@ -454,6 +477,12 @@ profiles:
                 echo "Loading the NICo MCP image into the kind cluster..."
                 kind load docker-image --name "${CONTEXT#kind-}" \
                   "${runtime.images.nico-mcp.image}:${runtime.images.nico-mcp.tag}"
+                ;;
+              *)
+                if command -v container >/dev/null 2>&1 && container cluster list 2>/dev/null | grep -qw "$CONTEXT"; then
+                  dev/deployment/devspace/load-images-apple-container.sh "$CONTEXT" \
+                    "${runtime.images.nico-mcp.image}:${runtime.images.nico-mcp.tag}"
+                fi
                 ;;
             esac
       - op: replace
@@ -560,6 +589,15 @@ profiles:
                 "${runtime.images.nico-bmc-proxy.image}:${runtime.images.nico-bmc-proxy.tag}" \
                 "${runtime.images.machine-a-tron.image}:${runtime.images.machine-a-tron.tag}" \
                 "${runtime.images.nico-pxe.image}:${runtime.images.nico-pxe.tag}"
+              ;;
+            *)
+              if command -v container >/dev/null 2>&1 && container cluster list 2>/dev/null | grep -qw "$CONTEXT"; then
+                dev/deployment/devspace/load-images-apple-container.sh "$CONTEXT" \
+                  "${runtime.images.nico-api.image}:${runtime.images.nico-api.tag}" \
+                  "${runtime.images.nico-bmc-proxy.image}:${runtime.images.nico-bmc-proxy.tag}" \
+                  "${runtime.images.machine-a-tron.image}:${runtime.images.machine-a-tron.tag}" \
+                  "${runtime.images.nico-pxe.image}:${runtime.images.nico-pxe.tag}"
+              fi
               ;;
           esac
   - name: core-only

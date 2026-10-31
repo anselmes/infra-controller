@@ -49,13 +49,13 @@ livenessProbe:
     port: http
   periodSeconds: 30
 
-resources:
-  requests:
-    memory: "128Mi"
-    cpu: "100m"
-  limits:
-    memory: "512Mi"
-    cpu: "500m"
+resources: {}
+  # requests:
+  #   memory: "128Mi"
+  #   cpu: "100m"
+  # limits:
+  #   memory: "512Mi"
+  #   cpu: "500m"
 
 secrets:
   dbCreds: db-creds

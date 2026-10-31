@@ -15,13 +15,13 @@ cloudWorker:
   # these keys winning. Use it for OTEL_SERVICE_NAME when the cloud worker
   # needs its own service identity.
   extraEnv: {}
-  resources:
-    requests:
-      memory: "128Mi"
-      cpu: "100m"
-    limits:
-      memory: "512Mi"
-      cpu: "500m"
+  resources: {}
+    # requests:
+    #   memory: "128Mi"
+    #   cpu: "100m"
+    # limits:
+    #   memory: "512Mi"
+    #   cpu: "500m"
 
 siteWorker:
   replicaCount: 1
@@ -40,13 +40,13 @@ siteWorker:
   ## gives ~5x headroom over the measured peak without reserving memory the
   ## worker has never been shown to need. Deliberately modest: this is
   ## headroom for a known growth trend, not a fix for a diagnosed leak.
-  resources:
-    requests:
-      memory: "256Mi"
-      cpu: "100m"
-    limits:
-      memory: "1Gi"
-      cpu: "500m"
+  resources: {}
+    # requests:
+    #   memory: "256Mi"
+    #   cpu: "100m"
+    # limits:
+    #   memory: "1Gi"
+    #   cpu: "500m"
 
 secrets:
   temporalEncryptionKey: temporal-encryption-key

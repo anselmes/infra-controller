@@ -47,13 +47,13 @@ service:
   httpsPort: 8000
   httpPort: 8001
 
-resources:
-  requests:
-    memory: "64Mi"
-    cpu: "50m"
-  limits:
-    memory: "256Mi"
-    cpu: "250m"
+resources: {}
+  # requests:
+  #   memory: "64Mi"
+  #   cpu: "50m"
+  # limits:
+  #   memory: "256Mi"
+  #   cpu: "250m"
 
 # -- Extra container environment, name->value. Mainly for OTEL_* variables:
 # the binary exports traces when OTEL_EXPORTER_OTLP_ENDPOINT (or the traces

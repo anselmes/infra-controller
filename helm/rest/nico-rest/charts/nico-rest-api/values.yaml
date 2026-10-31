@@ -81,13 +81,13 @@ ingress:
       encoding: PKCS1
       size: 2048
 
-resources:
-  requests:
-    memory: "128Mi"
-    cpu: "100m"
-  limits:
-    memory: "512Mi"
-    cpu: "1000m"
+resources: {}
+  # requests:
+  #   memory: "128Mi"
+  #   cpu: "100m"
+  # limits:
+  #   memory: "512Mi"
+  #   cpu: "1000m"
 
 secrets:
   temporalEncryptionKey: temporal-encryption-key

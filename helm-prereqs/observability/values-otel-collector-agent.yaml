@@ -33,13 +33,13 @@ extraEnvs:
 securityContext:
   runAsUser: 0
   runAsNonRoot: false
-resources:
-  requests:
-    cpu: 100m
-    memory: 256Mi
-  limits:
-    cpu: 500m
-    memory: 1Gi
+resources: {}
+  # requests:
+  #   cpu: 100m
+  #   memory: 256Mi
+  # limits:
+  #   cpu: 500m
+  #   memory: 1Gi
 # OTLP ingest for traces. The chart renders a Service for the DaemonSet so in-cluster services
 # have a stable name (otel-agent.otel.svc.cluster.local:4317) rather than node-local addressing.
 ports:

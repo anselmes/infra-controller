@@ -15,13 +15,13 @@ mode: deployment
 # scrape target (values-kube-prometheus-stack.yaml) and the `deploy/otel-collector-gateway` refs in docs.
 fullnameOverride: otel-collector-gateway
 replicaCount: 1
-resources:
-  requests:
-    cpu: 200m
-    memory: 512Mi
-  limits:
-    cpu: "1"
-    memory: 2Gi
+resources: {}
+  # requests:
+  #   cpu: 200m
+  #   memory: 512Mi
+  # limits:
+  #   cpu: "1"
+  #   memory: 2Gi
 image:
   repository: "otel/opentelemetry-collector-contrib"
   tag: "0.106.1"

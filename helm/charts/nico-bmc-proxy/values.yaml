@@ -31,13 +31,13 @@ automountServiceAccountToken: true
 annotations:
   configmap.reloader.stakater.com/reload: '{{ include "nico-bmc-proxy.name" . }}-config-files, {{ include "nico-bmc-proxy.name" . }}-site-config-files'
 
-resources:
-  limits:
-    cpu: 4
-    memory: 2Gi
-  requests:
-    cpu: 1
-    memory: 512Mi
+resources: {}
+  # limits:
+  #   cpu: 4
+  #   memory: 2Gi
+  # requests:
+  #   cpu: 1
+  #   memory: 512Mi
 
 service:
   proxy:

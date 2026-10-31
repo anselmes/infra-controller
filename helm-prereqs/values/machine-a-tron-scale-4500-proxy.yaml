@@ -90,13 +90,13 @@ readinessProbe:
   timeoutSeconds: 5
 # One process now simulates all 13,500 machines instead of three sharing the
 # load, so this is deliberately larger than the multipod per-pod sizing.
-resources:
-  limits:
-    cpu: "32"
-    memory: 64Gi
-  requests:
-    cpu: "8"
-    memory: 16Gi
+resources: {}
+  # limits:
+  #   cpu: "32"
+  #   memory: 64Gi
+  # requests:
+  #   cpu: "8"
+  #   memory: 16Gi
 pods:
   # The chart's own values.yaml ships a mat-0 pod. Null it, or this file's
   # default pod makes the render multi-pod, which the chart rejects unless

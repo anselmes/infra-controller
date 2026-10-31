@@ -88,13 +88,13 @@ mat-k8s-controller:
   gateway:
     enabled: true
     # Ten sources to poll and route: limits twice the subchart defaults.
-    resources:
-      limits:
-        cpu: "2"
-        memory: 2Gi
-      requests:
-        cpu: 500m
-        memory: 512Mi
+    resources: {}
+      # limits:
+      #   cpu: "2"
+      #   memory: 2Gi
+      # requests:
+      #   cpu: 500m
+      #   memory: 512Mi
 
 # The chart's default startupProbe (120 x 30s) already covers 25 racks per pod:
 # one rack registers 36 records, 25 x 36 = 900 records x 2s = 30 min.
@@ -113,13 +113,13 @@ livenessProbe:
 
 # 25 racks (1,775 BMCs, 1,350 machines) per pod. The chart applies this block
 # to every pod.
-resources:
-  limits:
-    cpu: "4"
-    memory: 6Gi
-  requests:
-    cpu: "1"
-    memory: 2Gi
+resources: {}
+  # limits:
+  #   cpu: "4"
+  #   memory: 6Gi
+  # requests:
+  #   cpu: "1"
+  #   memory: 2Gi
 
 # Rack groups use the chart's snake_case keys. bmc_dhcp_relay_address is the
 # simulated-oob gateway. underlay_dhcp_relay_address is the simulated-underlay

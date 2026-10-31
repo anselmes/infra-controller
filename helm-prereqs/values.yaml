@@ -303,10 +303,10 @@ postgresql:
   ##
   ## NOTE: teardown deletes the postgres namespace, so a resize applied before
   ## a reinstall is silently reverted. Change it here, not on the live cluster.
-  resources:
-    limits:
-      cpu: "8"
-      memory: "16Gi"
-    requests:
-      cpu: "2"
-      memory: "4Gi"
+  resources: {}
+    # limits:
+    #   cpu: "8"
+    #   memory: "16Gi"
+    # requests:
+    #   cpu: "2"
+    #   memory: "4Gi"
